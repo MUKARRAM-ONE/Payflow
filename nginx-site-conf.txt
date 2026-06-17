@@ -4,6 +4,6 @@
 
         location / {
             include proxy_params;
-            proxy_pass http://unix:/home/hafta/Hafta/hafta.sock;
+            proxy_pass http://unix:/home/payflow/PayFlow/payflow.sock;
         }
     } 

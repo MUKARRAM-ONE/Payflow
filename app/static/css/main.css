@@ -7,12 +7,20 @@
 
 body, html {
     font-family: 'Inter', sans-serif !important;
+    background-color: #f8fafc;
 }
 
 .input {
     font-family: 'Inter', 'Roboto', sans-serif !important;
-    border-radius: 0 !important;
-    box-shadow: none !important;
+    border-radius: 8px !important;
+    box-shadow: inset 0 2px 4px 0 rgba(0,0,0,0.06) !important;
+    border: 1px solid #e2e8f0;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.input:focus {
+    border-color: #3b82f6;
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1) !important;
 }
 
 .libre {
@@ -46,65 +54,75 @@ i {
     width: inherit;
     position: fixed;
     padding: 2.5rem 2rem 0 1rem;
-    /* position: sticky !important; */
-    /* border-right: 2px solid rgba(0, 0, 0, 0.1); */
+}
+
+.has-background-slate {
+    background-color: #1e293b !important;
 }
 
 .columns.is-fullheight {
     min-height: 100vh;
     max-height: 100% !important;
     height: 100% !important;
-    /* display: flex;
-    flex-direction: row;
-    justify-content: stretch; */
 }
 
-/* .columns.is-fullheight .column {
-    overflow-y: auto;
-} */
-
 .box {
-    border-radius: 0 !important;
-    box-shadow: none !important;
-    border: 1px solid lightgray;
-    /* z-index: 2 !important; */
+    border-radius: 12px !important;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06) !important;
+    border: 1px solid #f1f5f9;
     position: relative;
+    transition: transform 0.2s, box-shadow 0.2s;
 }
 
 .notification {
-    border-radius: 0 !important;
+    border-radius: 8px !important;
     padding: 1rem !important;
-
 }
 
 .router-link-active {
     font-weight: 600;
-    border-bottom: 1px solid black !important;
+    color: #3b82f6 !important;
+    border-bottom: 2px solid #3b82f6 !important;
 }
 
 .hero .tabs ul {
-    border-bottom: 1px solid #dbdbdb !important;
+    border-bottom: 1px solid #e2e8f0 !important;
 }
 
 .button {
     font-family: 'Inter';
-    border-radius: 0 !important;
+    border-radius: 8px !important;
+    transition: all 0.2s;
+    font-weight: 500;
+}
+
+.button:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
 }
 
 .label {
-    font-weight: 600 !important;
+    font-weight: 500 !important;
+    color: #475569 !important;
+    margin-bottom: 0.5rem;
 }
 
 .is-underline {
     text-decoration: underline;
 }
 
+#mainmenu .menu-list li a {
+    border-radius: 6px;
+    margin-bottom: 2px;
+    transition: background-color 0.2s;
+}
+
 #mainmenu .menu-list li a:hover {
-    background-color: rgb(63, 63, 63);
+    background-color: rgba(255, 255, 255, 0.1);
 }
 
 #navMenu .menu-list li a:hover {
-    background-color: rgb(63, 63, 63);
+    background-color: rgba(255, 255, 255, 0.1);
 }
 
 #submenu>.menu-list li a {
@@ -127,12 +145,13 @@ i {
     top: auto;
     position: fixed;
     padding: 2rem 0;
-    border-top: 1px solid #0a0a0a;
+    border-top: 1px solid #e2e8f0;
+    background: white;
 }
 
 .tag {
-    border-radius: 0 !important;
-    border: 0.5px solid #000;
+    border-radius: 4px !important;
+    border: none;
 }
 
 /* Autocomplete from Buefy */

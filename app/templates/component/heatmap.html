@@ -60,13 +60,16 @@
 
 <style>
   .rect {
-
-    padding: 9px;
-    /* height: 12px; */
-    margin: 2px !important;
-    /* background-color: grey; */
+    padding: 10px;
+    margin: 3px !important;
     font-size: 0 !important;
-
+    border-radius: 4px;
+    transition: transform 0.1s;
+  }
+  
+  .rect:hover {
+    transform: scale(1.2);
+    z-index: 10;
   }
 
   [data-tooltip] {
@@ -79,10 +82,9 @@
   [data-tooltip]:before,
   [data-tooltip]:after {
     visibility: hidden;
-    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
-    filter: progid: DXImageTransform.Microsoft.Alpha(Opacity=0);
     opacity: 0;
     pointer-events: none;
+    transition: all 0.2s ease;
   }
 
   /* Position tooltip above the element */
@@ -90,31 +92,29 @@
     position: absolute;
     bottom: 150%;
     left: 50%;
-    margin-bottom: 5px;
+    margin-bottom: 8px;
     margin-left: -80px;
-    padding: 7px;
+    padding: 8px 12px;
     width: 160px;
-    -webkit-border-radius: 3px;
-    -moz-border-radius: 3px;
-    border-radius: 3px;
-    background-color: #000;
-    background-color: hsla(0, 0%, 20%, 0.9);
+    border-radius: 8px;
+    background-color: #1e293b;
     color: #fff;
     content: attr(data-tooltip);
     text-align: center;
-    font-size: 14px;
+    font-size: 12px;
+    font-weight: 500;
     line-height: 1.2;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
   }
 
-  /* Triangle hack to make tooltip look like a speech bubble */
+  /* Triangle hack */
   [data-tooltip]:after {
     position: absolute;
     bottom: 150%;
     left: 50%;
     margin-left: -5px;
     width: 0;
-    border-top: 5px solid #000;
-    border-top: 5px solid hsla(0, 0%, 20%, 0.9);
+    border-top: 5px solid #1e293b;
     border-right: 5px solid transparent;
     border-left: 5px solid transparent;
     content: " ";

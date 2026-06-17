@@ -1,0 +1,13 @@
+[Unit]
+Description=Gunicorn instance to serve PayFlow
+After=network.target
+
+[Service]
+User=root
+Group=www-data
+WorkingDirectory=/root/payflow/PayFlow
+Environment="PATH=/root/payflow/ENV/bin"
+ExecStart=/root/payflow/ENV/bin/gunicorn --workers 3 --bind unix:payflow.sock -m 007 run:app
+
+[Install]
+WantedBy=multi-user.target

@@ -8,47 +8,49 @@
 
 
             <div class="columns is-centered">
-                <div class="column is-one-quarter-desktop is-centered">
-                    <p class="libre is-size-3">Hafta</p>
-                    <br>
-                    <p class=" is-size-5">Welcome back. <br>
-                        Please login in to continue</p>
-                    <div class="" style="margin-top:2rem;">
-                        {% if mssg != "" %}
-                        <p id="auth_snackbar" class="has-text-weight-bold is-underline has-text-danger">{{ mssg }}</p>
-                        {% endif %}
+                <div class="column is-one-third-desktop is-centered">
+                    <div class="box p-6">
+                        <p class="libre is-size-3">PayFlow</p>
                         <br>
-                        <form action="{{ url_for('auth.login')}}" method="POST">
-                            {{form.hidden_tag()}}
+                        <p class="is-size-5 has-text-grey">Welcome back. <br>
+                            Please login to continue</p>
+                        <div class="" style="margin-top:2rem;">
+                            {% if mssg != "" %}
+                            <p id="auth_snackbar" class="has-text-weight-bold is-underline has-text-danger">{{ mssg }}</p>
+                            {% endif %}
+                            <br>
+                            <form action="{{ url_for('auth.login')}}" method="POST">
+                                {{form.hidden_tag()}}
 
-                            <div class="field">
-                                <div class="control">
-                                    <label for="username" class="label">Username</label>
-                                    {{form.username(class="input" , placeholder="Enter Username")}}
+                                <div class="field">
+                                    <div class="control">
+                                        <label for="username" class="label">Username</label>
+                                        {{form.username(class="input" , placeholder="Enter Username")}}
+                                    </div>
+                                    <br>
+                                    <label for="password" class="label">Password</label>
+                                    {{form.password(class="input" , placeholder="Enter Password")}}
                                 </div>
-
-                                <label for="password" class="label">Password</label>
-                                {{form.password(class="input" , placeholder="Enter Password")}}
-                            </div>
-                    </div>
-                    <br>
-                    <div class="level">
-                        <div class="level-start">
-                            <div class="level-item">
-                                <div class="control">
-                                    {{form.submit(class="button is-black")}}
+                        </div>
+                        <br>
+                        <div class="level">
+                            <div class="level-start">
+                                <div class="level-item">
+                                    <div class="control">
+                                        {{form.submit(class="button is-link is-fullwidth")}}
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="level-end">
-                            <div class="level-item">
-                                <a href="{{ url_for( 'auth.register')}}" class="button is-text">Sign Up?</a>
+                            <div class="level-end">
+                                <div class="level-item">
+                                    <a href="{{ url_for( 'auth.register')}}" class="button is-text">Sign Up?</a>
+                                </div>
                             </div>
+
+
                         </div>
-
-
+                        </form>
                     </div>
-                    </form>
                 </div>
             </div>
         </div>
