@@ -206,7 +206,7 @@ def process_sheet():
                     slip_data.employee.append(emp)
                     pending_advance = float(
                         item['net_deduction_month']) + float(item['net_deduction_year'])
-                    if pending_advance is not float(0):
+                    if pending_advance != float(0):
                         new_data = Advance(advanceamt=float(
                             item['net_adv_deduction']), trans="debit", date=payload_date, deduction_period="debit")
                         new_data.employee.append(emp)
@@ -363,7 +363,7 @@ def generate_sheet(company, month):
                     adv_item['deduction'])
 
             if adv_item['deduction_period'] == 'year':
-                if payload_date.month is 12:
+                if payload_date.month == 12:
 
                     net_advance_year += float(adv_item['advanceamt'])
                     net_deduction_year += float(adv_item['deduction'])
@@ -385,10 +385,10 @@ def generate_sheet(company, month):
 
         # Setting to 0 if balance is 0
 
-        if float(net_advance_month) is float(0):
+        if float(net_advance_month) == float(0):
             att_item['deductions']['month'] = 0
             att_item['deductions']['month'] = 0
-        if float(net_advance_year) is float(0):
+        if float(net_advance_year) == float(0):
             att_item['deductions']['year'] = 0
             att_item['deductions']['year'] = 0
 

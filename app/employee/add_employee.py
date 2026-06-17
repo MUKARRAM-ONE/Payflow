@@ -90,7 +90,7 @@ def update_employee():
 
                     if temp == 'post' and (val is not None):
 
-                        if val is not '-1':
+                        if val != '-1':
                             data = Post.query.filter_by(id=int(val)).first()
                             new_data.post = []
                             new_data.post.append(data)
@@ -99,7 +99,7 @@ def update_employee():
                             return jsonify({'message': 'Please select post.'})
 
                     if temp == 'department' and (val is not None):
-                        if val is not '-1':
+                        if val != '-1':
                             data = Department.query.filter_by(
                                 id=int(val)).first()
                             new_data.department = []
@@ -109,7 +109,7 @@ def update_employee():
                             return jsonify({'message': 'Please select current city.'})
 
                     if temp == 'company' and (val is not None):
-                        if val is not '-1':
+                        if val != '-1':
                             data = Company.query.filter_by(id=int(val)).first()
 
                             new_data.company = []
@@ -118,7 +118,7 @@ def update_employee():
                         else:
                             return jsonify({'message': 'Please select company.'})
                     if temp == 'appointment' and (val is not None):
-                        if val is not '-1':
+                        if val != '-1':
                             data = Appointment.query.filter_by(
                                 id=int(val)).first()
                             new_data.appointment = []
@@ -130,7 +130,7 @@ def update_employee():
                     if temp == 'curr_city' and (val is not None):
                         if payload['curr_address'] is not None:
 
-                            if val is not -1:
+                            if val != -1:
                                 data = Location.query.filter_by(
                                     id=int(val)).first()
                                 new_data.curr_city = []
@@ -143,7 +143,7 @@ def update_employee():
 
                 if temp == 'perm_city' and (val is not None):
                         if payload['perm_address'] is not None:
-                            if val is not -1:
+                            if val != -1:
 
                                 data = Location.query.filter_by(
                                     id=int(val)).first()
@@ -155,7 +155,7 @@ def update_employee():
                         else:
                             continue
 
-                if temp == 'benefits' and (len(val) is not 0):
+                if temp == 'benefits' and (len(val) != 0):
                     new_data.benefits = []
 
                     for item in val:
@@ -164,7 +164,7 @@ def update_employee():
                         new_data.benefits.append(data)
                     continue
 
-                if val is not '' and val is not None and temp != 'benefits':
+                if val != '' and val is not None and temp != 'benefits':
                     setattr(new_data, str(temp), val)
 
                 # else:
@@ -437,7 +437,7 @@ def add_emp():
 
                     if temp == 'post' and (val is not None):
                        
-                        if val is not '-1':
+                        if val != '-1':
                             data = Post.query.filter_by(id=int(val)).first()
                             new_data.post.append(data)
                             continue
@@ -445,7 +445,7 @@ def add_emp():
                             return jsonify({'message': 'Please select post.'})
 
                     if temp == 'department' and (val is not None):
-                        if val is not '-1':
+                        if val != '-1':
                             data = Department.query.filter_by(
                                 id=int(val)).first()
                             new_data.department.append(data)
@@ -454,14 +454,14 @@ def add_emp():
                             return jsonify({'message': 'Please select current city.'})
 
                     if temp == 'company' and (val is not None):
-                        if val is not '-1':
+                        if val != '-1':
                             data = Company.query.filter_by(id=int(val)).first()
                             new_data.company.append(data)
                             continue
                         else:
                             return jsonify({'message': 'Please select company.'})
                     if temp == 'appointment' and (val is not None):
-                        if val is not '-1':
+                        if val != '-1':
                             data = Appointment.query.filter_by(
                                 id=int(val)).first()
                             new_data.appointment.append(data)
@@ -472,7 +472,7 @@ def add_emp():
                     if temp == 'curr_city' and (val is not None):
                         if payload['curr_address'] is not None:
 
-                            if val is not -1:
+                            if val != -1:
                                 data = City.query.filter_by(
                                     id=int(val)).first()
                                 new_data.curr_city.append(data)
@@ -484,7 +484,7 @@ def add_emp():
 
                     if temp == 'perm_city' and (val is not None):
                         if payload['perm_address'] is not None:
-                            if val is not -1:
+                            if val != -1:
 
                                 data = City.query.filter_by(
                                     id=int(val)).first()
@@ -495,14 +495,14 @@ def add_emp():
                         else:
                             continue
 
-                    if temp == 'benefits' and (len(val) is not 0):
+                    if temp == 'benefits' and (len(val) != 0):
                         for item in val:
                             data = Benefit.query.filter_by(
                                 id=item['id']).first()
                             new_data.benefits.append(data)
                         continue
 
-                    if val is not '' and val is not None and temp != 'benefits':
+                    if val != '' and val is not None and temp != 'benefits':
                         setattr(new_data, str(temp), val)
 
                 

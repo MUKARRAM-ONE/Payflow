@@ -192,7 +192,7 @@ def delete_location():
         payload = request.json
         check_data = Location.query.filter_by(id=payload['id'])
         if check_data.first():
-            if len(check_data.first().company_location) is int(0):
+            if len(check_data.first().company_location) == 0:
 
                 try:
                     check_data.delete()

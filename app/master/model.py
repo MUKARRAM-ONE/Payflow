@@ -49,7 +49,7 @@ db.Table('company_location',
          )
 
 
-class LocationSchema(ma.SQLAlchemySchema ):
+class LocationSchema(ma.SQLAlchemyAutoSchema ):
     class Meta:
         model = Location
 
@@ -64,7 +64,7 @@ class City(db.Model):
     def __init__(self, name):
         self.name = name
 
-class CitySchema(ma.SQLAlchemySchema ):
+class CitySchema(ma.SQLAlchemyAutoSchema ):
     class Meta:
         model = City
 
@@ -79,7 +79,7 @@ class Appointment(db.Model):
         self.name = name
 
 
-class AppointmentSchema(ma.SQLAlchemySchema ):
+class AppointmentSchema(ma.SQLAlchemyAutoSchema ):
     class Meta:
         model = Appointment
 
@@ -93,7 +93,7 @@ class Department(db.Model):
         self.name = name
 
 
-class DepartmentSchema(ma.SQLAlchemySchema ):
+class DepartmentSchema(ma.SQLAlchemyAutoSchema ):
     class Meta:
         model = Department
 
@@ -107,7 +107,7 @@ class Post(db.Model):
         self.name = name
 
 
-class PostSchema(ma.SQLAlchemySchema ):
+class PostSchema(ma.SQLAlchemyAutoSchema ):
     class Meta:
         model = Post
 
@@ -121,7 +121,7 @@ class Benefit(db.Model):
         self.name = name
 
 
-class BenefitSchema(ma.SQLAlchemySchema ):
+class BenefitSchema(ma.SQLAlchemyAutoSchema ):
     class Meta:
         model = Benefit
 
@@ -135,7 +135,7 @@ class ModeOfPay(db.Model):
         self.name = name
 
 
-class PaySchema(ma.SQLAlchemySchema ):
+class PaySchema(ma.SQLAlchemyAutoSchema ):
     class Meta:
         model = ModeOfPay
 
@@ -169,21 +169,21 @@ class AttendenceRules(db.Model):
         self.early_going_day = early_going_day
 
 
-class PerformanceSchema(ma.SQLAlchemySchema ):
+class PerformanceSchema(ma.SQLAlchemyAutoSchema ):
     class Meta:
         model = Performance
 
-class AttendenceRuleSchema(ma.SQLAlchemySchema ):
+class AttendenceRuleSchema(ma.SQLAlchemyAutoSchema ):
     class Meta:
         model = AttendenceRules
 
 
-class EmployeeCatSchema(ma.SQLAlchemySchema ):
+class EmployeeCatSchema(ma.SQLAlchemyAutoSchema ):
     class Meta:
         model = EmployeeCategory
 
 
-class CompanySchema(ma.SQLAlchemySchema ):
+class CompanySchema(ma.SQLAlchemyAutoSchema ):
     location = ma.Nested(LocationSchema, many=True)
 
     class Meta:
