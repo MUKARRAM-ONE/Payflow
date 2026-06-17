@@ -30,6 +30,7 @@ const LocationForm =
     delimiters: ["[[", "]]"],
     mounted() {
         feather.replace();
+        this.getData();
         this.$refs.name.focus();
     },
     methods: {
@@ -57,7 +58,7 @@ const LocationForm =
 
                         if (response.data.success) {
                             formdata.form.name = null;
-
+                            formdata.getData();
                             formdata.$buefy.snackbar.open({
                                 duration: 4000,
                                 message: response.data.success,

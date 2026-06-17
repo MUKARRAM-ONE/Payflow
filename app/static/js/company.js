@@ -38,6 +38,7 @@ const CompanyForm =
             .then(function (response) {
                 formdata.options = response.data;
             })
+        this.getData();
         this.focusInput()
     },
     methods: {
@@ -77,7 +78,7 @@ const CompanyForm =
                         if (response.data.success) {
                             formdata.form.name = null;
                             formdata.form.location = -1;
-
+                            formdata.getData();
                             formdata.$buefy.snackbar.open({
                                 duration: 4000,
                                 message: response.data.success,

@@ -30,6 +30,7 @@ const CityForm =
     delimiters: ["[[", "]]"],
     mounted() {
         feather.replace();
+        this.getData();
         this.focusInput();
     },
     methods: {
@@ -72,7 +73,7 @@ const CityForm =
                     .then(function (response) {
                         formdata.form.mssg = response['data']
                         formdata.form.name = null;
-
+                        formdata.getData();
                         formdata.$buefy.snackbar.open({
                             duration: 4000,
                             message: response.data.success,

@@ -52,6 +52,7 @@ db.Table('company_location',
 class LocationSchema(ma.SQLAlchemyAutoSchema ):
     class Meta:
         model = Location
+        fields = ("id", "name")
 
 
 
@@ -67,6 +68,7 @@ class City(db.Model):
 class CitySchema(ma.SQLAlchemyAutoSchema ):
     class Meta:
         model = City
+        fields = ("id", "name")
 
 
 
@@ -82,6 +84,7 @@ class Appointment(db.Model):
 class AppointmentSchema(ma.SQLAlchemyAutoSchema ):
     class Meta:
         model = Appointment
+        fields = ("id", "name")
 
 
 class Department(db.Model):
@@ -96,6 +99,7 @@ class Department(db.Model):
 class DepartmentSchema(ma.SQLAlchemyAutoSchema ):
     class Meta:
         model = Department
+        fields = ("id", "name")
 
 
 class Post(db.Model):
@@ -110,6 +114,7 @@ class Post(db.Model):
 class PostSchema(ma.SQLAlchemyAutoSchema ):
     class Meta:
         model = Post
+        fields = ("id", "name")
 
 
 class Benefit(db.Model):
@@ -124,6 +129,7 @@ class Benefit(db.Model):
 class BenefitSchema(ma.SQLAlchemyAutoSchema ):
     class Meta:
         model = Benefit
+        fields = ("id", "name")
 
 
 class ModeOfPay(db.Model):
@@ -138,6 +144,7 @@ class ModeOfPay(db.Model):
 class PaySchema(ma.SQLAlchemyAutoSchema ):
     class Meta:
         model = ModeOfPay
+        fields = ("id", "name")
 
 
 class Performance(db.Model):
@@ -172,15 +179,18 @@ class AttendenceRules(db.Model):
 class PerformanceSchema(ma.SQLAlchemyAutoSchema ):
     class Meta:
         model = Performance
+        fields = ("id", "name", "score", "weight")
 
 class AttendenceRuleSchema(ma.SQLAlchemyAutoSchema ):
     class Meta:
         model = AttendenceRules
+        fields = ("id", "late_comin", "late_comin_day", "early_going", "early_going_day")
 
 
 class EmployeeCatSchema(ma.SQLAlchemyAutoSchema ):
     class Meta:
         model = EmployeeCategory
+        fields = ("id", "name")
 
 
 class CompanySchema(ma.SQLAlchemyAutoSchema ):
@@ -188,3 +198,4 @@ class CompanySchema(ma.SQLAlchemyAutoSchema ):
 
     class Meta:
         model = Company
+        fields = ("id", "name", "location")
